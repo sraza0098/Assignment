@@ -1,0 +1,163 @@
+<div class="container justify-content transaction-form">
+    <form [formGroup]="newTransactionForm" (ngSubmit)="onSubmit()">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="col-12 col-sm-12 form-group">
+                        <label for="reference">Reference</label>
+                        <input #reference (change)=detectChanges(reference) type="text" class="form-control" formControlName="reference" name="reference" required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('reference').hasError('invalid') || newTransactionForm.get('reference').hasError('required')) && newTransactionForm.get('reference').touched">
+                            Enter the Reference.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="col-12 col-sm-12 form-group">
+                        <label for="customerNumber">Customer number</label>
+                        <input type="text" class="form-control" formControlName="customerNumber" name="customerNumber" required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('customerNumber').hasError('invalid') || newTransactionForm.get('customerNumber').hasError('required')) && newTransactionForm.get('customerNumber').touched">
+                            Enter the Customer number.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="col-12 col-sm-12 form-group">
+                        <label for="customerName">Customer name</label>
+                        <input type="text" class="form-control" formControlName="customerName" name="customerName"
+                            required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('customerName').hasError('invalid') || newTransactionForm.get('customerName').hasError('required')) && newTransactionForm.get('customerName').touched">
+                            Enter the Customer name.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 form-group">
+                    <label for="customerAddress">Customer address</label>
+                    <textarea class="form-control" rows="5" formControlName="customerAddress" name="customerAddress"
+                        required></textarea>
+                    <p class="form-error-text"
+                        *ngIf="(newTransactionForm.get('customerAddress').hasError('invalid') || newTransactionForm.get('customerAddress').hasError('required')) && newTransactionForm.get('customerAddress').touched">
+                        Enter the Customer address.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="col-12 col-sm-12 form-group">
+                        <label for="customerPhoneNo">Customer Phone No.</label>
+                        <input type="number" class="form-control" formControlName="customerPhoneNo" name="customerPhoneNo"
+                            required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('customerPhoneNo').hasError('invalid') || newTransactionForm.get('customerPhoneNo').hasError('required')) && newTransactionForm.get('customerPhoneNo').touched">
+                            Customer Phone No.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="col-12 form-group">
+                        <label for="transferAmount">Transfer Amount</label>
+                        <input type="text" class="form-control" rows="5" formControlName="transferAmount"
+                            name="transferAmount" required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('transferAmount').hasError('invalid') || newTransactionForm.get('transferAmount').hasError('required')) && newTransactionForm.get('transferAmount').touched">
+                            Enter the Transfer Amount.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="col-12 form-group">
+                        <label for="transferCurrency">Transfer Currency</label>
+                        <input type="text" class="form-control" rows="5" formControlName="transferCurrency"
+                            name="transferCurrency" required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('transferCurrency').hasError('invalid') || newTransactionForm.get('transferCurrency').hasError('required')) && newTransactionForm.get('transferCurrency').touched">
+                            Enter the Transfer Currency.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="col-12 form-group">
+                        <label for="beneficiaryAccountNumber">Beneficiary Account Number</label>
+                        <input type="number" class="form-control" rows="5" formControlName="beneficiaryAccountNumber" name="beneficiaryAccountNumber"
+                            required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('beneficiaryAccountNumber').hasError('invalid') || newTransactionForm.get('beneficiaryAccountNumber').hasError('required')) && newTransactionForm.get('beneficiaryAccountNumber').touched">
+                            Enter the Beneficiary Account Number.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="col-12 form-group">
+                        <label for="paymentDetails">Payment Details</label>
+                        <input type="text" class="form-control" rows="5" formControlName="paymentDetails"
+                            name="paymentDetails" required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('paymentDetails').hasError('invalid') || newTransactionForm.get('paymentDetails').hasError('required')) && newTransactionForm.get('paymentDetails').touched">
+                            Enter the Payment Details.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="col-12 form-group">
+                        <label for="creditDebitDetails">Credit/Debit Card Details</label>
+                        <input type="text" class="form-control" rows="5" formControlName="creditDebitDetails"
+                            name="creditDebitDetails" required>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('creditDebitDetails').hasError('invalid') || newTransactionForm.get('creditDebitDetails').hasError('required')) && newTransactionForm.get('creditDebitDetails').touched">
+                            Enter the Credit/Debit Card Details.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="col-12 col-sm-12 form-group">
+                        <label for="region">Region</label>
+                        <select class="form-control" formControlName="region" name="region" required>
+                            <option>Port Louis</option>
+                            <option>Curepipe</option>
+                            <option>Vacoas</option>
+                            <option>Port Mathurin</option>
+
+                        </select>
+                        <p class="form-error-text"
+                            *ngIf="(newTransactionForm.get('region').hasError('invalid') || newTransactionForm.get('region').hasError('required')) && newTransactionForm.get('region').touched">
+                            Select the Region.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm">
+                </div>
+            </div>
+
+        </div>
+
+        <div *ngIf="errorMsg" class="errorMsg">
+            <div>
+                <p style="margin-left: 20px; color: red;"> Please enter all fields</p>
+            </div>
+
+        </div>
+        <div class="form-control-button">
+            <button mat-button color="accent" class="form-control-button-style">Submit</button>
+            <button mat-button color="accent" class="form-control-button-style" (click)="clearForm()">Clear</button>
+        </div>
+
+    </form>
+</div>
